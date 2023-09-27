@@ -1,0 +1,137 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+@using Models
+@using Services;
+@inject DefinitionService DefinitionService
+
+<MudThemeProvider Theme="_theme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+<MudLayout>
+    <MudContainer MaxWidth="MaxWidth.ExtraLarge" Style="margin-top: 15px;">
+        <MudGrid>
+            <MudItem xs="12" sm="4" md="3">
+                <div style="display: flex; align-items: center;">
+                    <MudIcon Color="Color.Primary" Icon="fa-solid fa-gear fa-shake" Style="margin: 10px;" />
+                    <MudText @onclick="() => NavigationManager.NavigateTo(string.Empty)" Typo="Typo.h3">Apipedia</MudText>
+                </div>
+            </MudItem>
+            <MudItem xs="12" sm="4" md="6" Style="display: flex; justify-content: center; align-items: center;">
+                <MudAutocomplete @ref="autoComplete" @onclick="()=>autoComplete.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="OnValueChange" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search"></MudAutocomplete>
+            </MudItem>
+            <MudItem xs="12" sm="4" md="3">
+                <div style="display: flex; justify-content: flex-end;">
+                    <MudToggleIconButton Toggled="_isDarkMode" ToggledChanged="ToggleDarkMode" Icon="fa-solid fa-moon" ToggledIcon="fa-solid fa-sun" ToggledColor="@Color.Warning" Color="@Color.Inherit" Edge="Edge.Start" />
+                </div>
+            </MudItem>
+        </MudGrid>
+    </MudContainer>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+    <MudAppBar Fixed="true" Bottom="true" Style="@("background: transparent; box-shadow: none;")">
+        <MudItem>
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" OnClick="NavigateGithub"></MudIconButton>
+        </MudItem>
+        <MudSpacer></MudSpacer>
+        <MudItem>
+            <MudImage @onclick=NavigateApiaddicts Src="imgs/apiaddicts_logo.png" Width="150" Fluid="true" Style="@("display: flex;  justify-content: center;  align-items: center;")" />
+        </MudItem>
+    </MudAppBar>
+</MudLayout>
+
+
+
+@code {
+    private bool _isDarkMode;
+    private MudTheme? _theme;
+    private string? keySelect;
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    public List<Definition>? Definitions { get; private set; }
+    MudAutocomplete<Definition>? autoComplete;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _theme = GenerateLightTheme();
+        await DefinitionService.LoadDefinitionsAsync();
+        Definitions = DefinitionService.Definitions;
+    }
+
+    private void ToggleDarkMode(bool isDarkMode)
+    {
+        _isDarkMode = isDarkMode;
+        _theme = _isDarkMode ? GenerateDarkTheme() : GenerateLightTheme();
+        StateHasChanged();
+    }
+
+    public async Task NavigateApiaddicts()
+    {
+        await NavigateUrl("https://www.apiaddicts.org/");
+    }
+
+    public async Task NavigateUrl(string url)
+    {
+        await JS.InvokeVoidAsync("open", url, "_blank");
+    }
+
+    public async Task NavigateGithub()
+    {
+        await NavigateUrl("https://github.com/apiaddicts");
+    }
+
+    private async Task<IEnumerable<Definition>> SearchDefinition(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return Definitions;
+        return Definitions.Where(x => x.Title.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private void OnValueChange(Definition value)
+    {
+        NavigationManager.NavigateTo($"/{value.Key}");
+    }
+
+
+    private MudTheme GenerateLightTheme() =>
+    new MudTheme
+        {
+            Palette = new PaletteLight()
+            {
+                Primary = "#00BCD4",
+                Secondary = "#FD8E18",
+                Tertiary = "#878787",
+            },
+            Typography = new Typography()
+            {
+                Default = new Default()
+                {
+                    FontFamily = new[] { "Karla" }
+                }
+            }
+        };
+
+    private MudTheme GenerateDarkTheme() =>
+        new MudTheme
+            {
+                Palette = new PaletteDark()
+                {
+                    Primary = "#00BCD4",
+                    Secondary = "#FD8E18",
+                    Tertiary = "#13bdc2",
+                },
+                Typography = new Typography()
+                {
+                    Default = new Default()
+                    {
+                        FontFamily = new[] { "Karla" }
+                    }
+                }
+            };
+
+}

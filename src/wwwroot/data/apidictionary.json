@@ -1,0 +1,70 @@
+﻿[
+  {
+    "key": "api-key",
+    "title": "Api Key",
+    "htmlDef": "<div>Una API Key es un código único que identifica la llamada a la API que realiza una aplicación, esto puede ser usado para controlar el acceso y rastrear cómo se utiliza la API.<div>",
+    "refs": [
+      {
+        "title": "Wikipedia - API Key",
+        "url": "https://en.wikipedia.org/wiki/API_key"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "terminology"
+      }
+    ]
+  },
+  {
+    "key": "rest-api",
+    "title": "REST API",
+    "htmlDef": "<div>REST (Representational State Transfer) es un estilo arquitectónico para desarrollar servicios web. Una API REST se compone de métodos HTTP, URIs, tipos de medios y estado HTTP.<div>",
+    "refs": [
+      {
+        "title": "Wikipedia - REST API",
+        "url": "https://en.wikipedia.org/wiki/Representational_state_transfer"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "terminology"
+      }
+    ]
+  },
+  {
+    "key": "soap-api",
+    "title": "SOAP API",
+    "htmlDef": "<div>SOAP (Simple Object Access Protocol) es un protocolo de intercambio de mensajes basado en XML a través de redes, utilizado principalmente para invocar acciones en servidores web.<div>",
+    "refs": [
+      {
+        "title": "Wikipedia - SOAP API",
+        "url": "https://en.wikipedia.org/wiki/SOAP"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "terminology"
+      }
+    ]
+  },
+  {
+    "key": "graphql-api",
+    "title": "GraphQL API",
+    "htmlDef": "<div>GraphQL es un lenguaje de consulta y manipulación de datos para APIs, y un tiempo de ejecución para ejecutar esas consultas con tus datos existentes.<div>",
+    "refs": [
+      {
+        "title": "Wikipedia - GraphQL API",
+        "url": "<https://en.wikipedia.org/wiki/GraphQL>"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "terminology"
+      }
+    ]
+  }
+]

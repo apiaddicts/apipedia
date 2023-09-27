@@ -1,0 +1,61 @@
+﻿@page "/{word}"
+@inject HttpClient Http
+@using Models
+@using Services;
+@inject DefinitionService DefinitionService
+
+
+<MudItem xs="12" Style="margin-top: 20px">
+
+    @if (definition != null)
+    {
+        <MudText Color="Color.Primary" Typo="Typo.h3" Align="Align.Center">@definition.Title</MudText>
+
+        if (definition.Tags != null)
+        {
+            <div style="margin: 15px 70px; text-align: justify;">
+                @foreach (var tag in definition.Tags)
+                {
+                    <MudChip Color="Color.Primary">@tag.Name</MudChip>
+                    <MudChip Color="Color.Secondary">@tag.Category</MudChip>
+                }
+            </div>
+        }
+
+
+        if (definition.HtmlDef != null)
+        {
+            <MudText Typo="Typo.h4" Align="Align.Center" Style="margin: 15px 70px; text-align: justify;">
+                @((MarkupString)definition.HtmlDef)
+            </MudText>
+        }
+
+        if (definition.Refs != null)
+        {
+            @foreach (var r in definition.Refs)
+            {
+                <MudLink Href="@r.Url" Style="margin: 15px 70px; text-align: justify;">@r.Title</MudLink>
+            }
+        }
+
+    }
+
+
+</MudItem>
+
+@code {
+
+    [Parameter]
+    public string word { get; set; }
+
+    public Definition? definition;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await DefinitionService.LoadDefinitionsAsync();
+        var definitions = DefinitionService.Definitions;
+        if (definitions!=null)
+            definition = definitions.FirstOrDefault(d => d.Key == word);
+    }
+
+}
