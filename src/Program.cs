@@ -3,6 +3,7 @@ using Apipedia.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
+using MudExtensions.Services;
 
 public static class Program
 {
@@ -25,6 +26,7 @@ public static class Program
         });
         builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
         builder.Services.AddSingleton<DefinitionService>();
+        builder.Services.AddMudExtensions();
 
     }
 

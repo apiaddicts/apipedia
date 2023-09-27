@@ -3,17 +3,21 @@
 @using Models
 @using Services;
 @inject DefinitionService DefinitionService
+@using ZXing;
 
-
+<div class="animate__animated animate__fadeIn">
 <MudItem xs="12" Style="margin-top: 20px">
 
     @if (definition != null)
     {
-        <MudText Color="Color.Primary" Typo="Typo.h3" Align="Align.Center">@definition.Title</MudText>
+        <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
+        <div style="text-align: center; margin: 15px;">
+            <MudBarcode @ref="_barcode" @bind-Value="word" Width="200" Height="200" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
+        </div>
 
-        if (definition.Tags != null)
+        @if (definition.Tags != null)
         {
-            <div style="margin: 15px 70px; text-align: justify;">
+            <div style="margin: 15px 80px; text-align: justify;">
                 @foreach (var tag in definition.Tags)
                 {
                     <MudChip Color="Color.Primary">@tag.Name</MudChip>
@@ -25,7 +29,7 @@
 
         if (definition.HtmlDef != null)
         {
-            <MudText Typo="Typo.h4" Align="Align.Center" Style="margin: 15px 70px; text-align: justify;">
+            <MudText Typo="Typo.h4" Align="Align.Center" Style="margin: 15px 80px; text-align: justify;">
                 @((MarkupString)definition.HtmlDef)
             </MudText>
         }
@@ -34,21 +38,20 @@
         {
             @foreach (var r in definition.Refs)
             {
-                <MudLink Href="@r.Url" Style="margin: 15px 70px; text-align: justify;">@r.Title</MudLink>
+                <MudLink Href="@r.Url" Style="margin: 15px 80px; text-align: justify;">@r.Title</MudLink>
             }
         }
 
     }
 
-
 </MudItem>
-
+</div>
 @code {
 
     [Parameter]
     public string word { get; set; }
-
-    public Definition? definition;
+    private MudBarcode? _barcode;
+    private Definition? definition;
 
     protected override async Task OnParametersSetAsync()
     {

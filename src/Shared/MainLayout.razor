@@ -10,18 +10,17 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-
 <MudLayout>
     <MudContainer MaxWidth="MaxWidth.ExtraLarge" Style="margin-top: 15px;">
         <MudGrid>
             <MudItem xs="12" sm="4" md="3">
                 <div style="display: flex; align-items: center;">
                     <MudIcon Color="Color.Primary" Icon="fa-solid fa-gear fa-shake" Style="margin: 10px;" />
-                    <MudText @onclick="() => NavigationManager.NavigateTo(string.Empty)" Typo="Typo.h3">Apipedia</MudText>
+                    <MudText @onclick="NavigateToRoot" Typo="Typo.h3">Apipedia</MudText>
                 </div>
             </MudItem>
             <MudItem xs="12" sm="4" md="6" Style="display: flex; justify-content: center; align-items: center;">
-                <MudAutocomplete @ref="autoComplete" @onclick="()=>autoComplete.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="OnValueChange" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search"></MudAutocomplete>
+                <MudAutocomplete @ref="autoComplete" ResetValueOnEmptyText="true" @onclick="()=>autoComplete!.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="NavigateToKey" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search"></MudAutocomplete>
             </MudItem>
             <MudItem xs="12" sm="4" md="3">
                 <div style="display: flex; justify-content: flex-end;">
@@ -35,7 +34,16 @@
     </MudMainContent>
     <MudAppBar Fixed="true" Bottom="true" Style="@("background: transparent; box-shadow: none;")">
         <MudItem>
-            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" OnClick="NavigateGithub"></MudIconButton>
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Href="https://github.com/apiaddicts" Target="_blank"></MudIconButton>
+        </MudItem>
+        <MudItem>
+            <MudIconButton Icon="@Icons.Custom.Brands.YouTube" Href="https://github.com/apiaddicts" Target="_blank"></MudIconButton>
+        </MudItem>
+        <MudItem>
+            <MudIconButton Icon="fa-brands fa-x-twitter" Href="https://github.com/apiaddicts" Target="_blank"></MudIconButton>
+        </MudItem>
+        <MudItem>
+            <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Href="https://github.com/apiaddicts" Target="_blank"></MudIconButton>
         </MudItem>
         <MudSpacer></MudSpacer>
         <MudItem>
@@ -49,10 +57,6 @@
 @code {
     private bool _isDarkMode;
     private MudTheme? _theme;
-    private string? keySelect;
-    private bool resetValueOnEmptyText;
-    private bool coerceText;
-    private bool coerceValue;
     public List<Definition>? Definitions { get; private set; }
     MudAutocomplete<Definition>? autoComplete;
 
@@ -88,13 +92,23 @@
     private async Task<IEnumerable<Definition>> SearchDefinition(string value)
     {
         if (string.IsNullOrEmpty(value))
-            return Definitions;
-        return Definitions.Where(x => x.Title.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            return Definitions!;
+        return Definitions!.Where(x => x.Title.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
-    private void OnValueChange(Definition value)
+    private void NavigateToKey(Definition value)
     {
-        NavigationManager.NavigateTo($"/{value.Key}");
+        if (value != null)
+        {
+            NavigationManager.NavigateTo($"/{value.Key}");
+        }
+        
+    }
+
+    private void NavigateToRoot()
+    {
+        autoComplete!.Clear();
+        NavigationManager.NavigateTo("");
     }
 
 
