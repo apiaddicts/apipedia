@@ -1,5 +1,6 @@
 using Apipedia;
 using Apipedia.Services;
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
@@ -20,10 +21,9 @@ public static class Program
 
     private static void ConfigureServices(WebAssemblyHostBuilder builder)
     {
+        builder.Services.AddBlazoredLocalStorage();
         builder.Services.AddLocalization();
-        builder.Services.AddMudServices(config =>
-        {
-        });
+        builder.Services.AddMudServices();
         builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
         builder.Services.AddSingleton<DefinitionService>();
         builder.Services.AddMudExtensions();

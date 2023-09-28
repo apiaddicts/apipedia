@@ -6,18 +6,18 @@
 @using ZXing;
 
 <div class="animate__animated animate__fadeIn">
-<MudItem xs="12" Style="margin-top: 20px">
+    <MudItem xs="12" Style="margin: 20px 80px;">
 
     @if (definition != null)
     {
         <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
-        <div style="text-align: center; margin: 15px;">
-            <MudBarcode @ref="_barcode" @bind-Value="word" Width="175" Height="175" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
+        <div style="text-align: center; margin: 20px;">
+            <MudBarcode @ref="_barcode" @bind-Value="word" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
         </div>
 
         @if (definition.Tags != null)
         {
-            <div style="margin: 15px 80px; text-align: justify;">
+            <div style="text-align: justify; margin: 20px">
                 @foreach (var tag in definition.Tags)
                 {
                     <MudChip Color="Color.Primary">@tag.Name</MudChip>
@@ -26,28 +26,28 @@
             </div>
         }
 
-
         if (definition.HtmlDef != null)
         {
-            <MudText Typo="Typo.h5" Align="Align.Center" Style="margin: 15px 80px; text-align: justify;">
+            <MudText Typo="Typo.h5" Align="Align.Center" Style="text-align: justify; margin: 20px">
                 @((MarkupString)definition.HtmlDef)
             </MudText>
         }
 
         if (definition.Refs != null)
         {
-            @foreach (var r in definition.Refs)
-            {
-                <MudLink Href="@r.Url" Style="margin: 15px 80px; text-align: justify;">@r.Title</MudLink>
-            }
+             <div style="text-align: justify; margin: 20px">
+                @foreach (var r in definition.Refs)
+                {
+                    <MudChip Color="Color.Primary" Href="@r.Url" Style="text-align: justify;">@r.Title</MudChip>
+                }
+            </div>
         }
 
         if (definition.Imgs != null)
         {
-                <div style="display: flex; justify-content: center; margin: 15px;">
-                    <MudGallery ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large"></MudGallery>
-                </div>
-
+            <div style="display: flex; justify-content: center; margin: 20px ">
+                <MudGallery ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large"></MudGallery>
+            </div>
         }
 
     }

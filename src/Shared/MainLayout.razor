@@ -1,10 +1,11 @@
 ﻿@inherits LayoutComponentBase
+@using Models
+@using Services;
 @inject IJSRuntime JS
 @inject NavigationManager NavigationManager
 @inject HttpClient Http
-@using Models
-@using Services;
 @inject DefinitionService DefinitionService
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <MudThemeProvider Theme="_theme" />
 <MudDialogProvider />
@@ -62,14 +63,17 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _theme = GenerateLightTheme();
+        _isDarkMode = await localStorage.GetItemAsync<bool>("darkmode");
+        _theme = _isDarkMode ? GenerateDarkTheme() : GenerateLightTheme();
         await DefinitionService.LoadDefinitionsAsync();
         Definitions = DefinitionService.Definitions;
+       
     }
 
-    private void ToggleDarkMode(bool isDarkMode)
+    private async Task ToggleDarkMode(bool isDarkMode)
     {
         _isDarkMode = isDarkMode;
+        await localStorage.SetItemAsync<bool>("darkmode", _isDarkMode);
         _theme = _isDarkMode ? GenerateDarkTheme() : GenerateLightTheme();
         StateHasChanged();
     }
@@ -137,7 +141,7 @@
                 {
                     Primary = "#00BCD4",
                     Secondary = "#FD8E18",
-                    Tertiary = "#13bdc2",
+                    Tertiary = "#878787",
                 },
                 Typography = new Typography()
                 {
