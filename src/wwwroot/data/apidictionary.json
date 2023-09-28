@@ -1,20 +1,12 @@
 ﻿[
   {
-    "key": "api-key",
-    "title": "Api Key",
-    "htmlDef": "<div>Una API Key es un código único que identifica la llamada a la API que realiza una aplicación, esto puede ser usado para controlar el acceso y rastrear cómo se utiliza la API.<div>",
+    "key": "api",
+    "title": "Api",
+    "htmlDef": "<p>Una API, o Interfaz de Programación de Aplicaciones, es un conjunto de reglas y protocolos que permite que diferentes programas de software interactúen entre sí. Estas interacciones pueden incluir la creación, lectura, actualización y eliminación de operaciones. En resumen, una API actúa como un intermediario que permite que dos aplicaciones se comuniquen y compartan datos entre sí.</p>",
     "refs": [
       {
-        "title": "Wikipedia - API Key",
-        "url": "https://en.wikipedia.org/wiki/API_key"
-      },
-      {
-        "title": "Wikipedia - API Key",
-        "url": "https://en.wikipedia.org/wiki/API_key"
-      },
-      {
-        "title": "Wikipedia - API Key",
-        "url": "https://en.wikipedia.org/wiki/API_key"
+        "title": "Wikipedia - API",
+        "url": "https://en.wikipedia.org/wiki/API"
       }
     ],
     "tags": [

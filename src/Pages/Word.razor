@@ -10,8 +10,8 @@
 
     @if (definition != null)
     {
-        <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
-        <div style="text-align: center; margin: 20px;">
+         <div style="text-align: center; margin: 20px;">
+            <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
             <MudBarcode @ref="_barcode" @bind-Value="word" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
         </div>
 
@@ -28,7 +28,7 @@
 
         if (definition.HtmlDef != null)
         {
-            <MudText Typo="Typo.h5" Align="Align.Center" Style="text-align: justify; margin: 20px">
+            <MudText Typo="Typo.h6" Align="Align.Center" Style="text-align: justify; margin: 20px">
                 @((MarkupString)definition.HtmlDef)
             </MudText>
         }
