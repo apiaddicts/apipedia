@@ -12,7 +12,7 @@
     {
         <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
         <div style="text-align: center; margin: 15px;">
-            <MudBarcode @ref="_barcode" @bind-Value="word" Width="200" Height="200" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
+            <MudBarcode @ref="_barcode" @bind-Value="word" Width="175" Height="175" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
         </div>
 
         @if (definition.Tags != null)
@@ -29,7 +29,7 @@
 
         if (definition.HtmlDef != null)
         {
-            <MudText Typo="Typo.h4" Align="Align.Center" Style="margin: 15px 80px; text-align: justify;">
+            <MudText Typo="Typo.h5" Align="Align.Center" Style="margin: 15px 80px; text-align: justify;">
                 @((MarkupString)definition.HtmlDef)
             </MudText>
         }
@@ -40,6 +40,14 @@
             {
                 <MudLink Href="@r.Url" Style="margin: 15px 80px; text-align: justify;">@r.Title</MudLink>
             }
+        }
+
+        if (definition.Imgs != null)
+        {
+                <div style="display: flex; justify-content: center; margin: 15px;">
+                    <MudGallery ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large"></MudGallery>
+                </div>
+
         }
 
     }
@@ -59,6 +67,11 @@
         var definitions = DefinitionService.Definitions;
         if (definitions!=null)
             definition = definitions.FirstOrDefault(d => d.Key == word);
+    }
+
+    private List<string> imageSource()
+    {
+        return definition.Imgs.Select(i=>i.Url).ToList();
     }
 
 }

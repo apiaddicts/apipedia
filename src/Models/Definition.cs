@@ -14,6 +14,8 @@ namespace Apipedia.Models
         public List<Reference>? Refs { get; set; }
         [JsonPropertyName("tags")]
         public List<Tag>? Tags { get; set; }
+        [JsonPropertyName("imgs")]
+        public List<Img>? Imgs { get; set; }
     }
 
     public class Reference
@@ -30,5 +32,13 @@ namespace Apipedia.Models
         public string? Name { get; set; }
         [JsonPropertyName("category")]
         public string? Category { get; set; }
+    }
+
+    public class Img
+    {
+        [JsonPropertyName("title")]
+        public string? Title { get; set; }
+        [JsonPropertyName("url")]
+        public string? Url { get; set; }
     }
 }
