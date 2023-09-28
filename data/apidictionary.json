@@ -1,0 +1,76 @@
+﻿[
+  {
+    "key": "api",
+    "title": "Api",
+    "htmlDef": "<p>Una API, o Interfaz de Programación de Aplicaciones, es un conjunto de reglas y protocolos que permite que diferentes programas de software interactúen entre sí. Estas interacciones pueden incluir la creación, lectura, actualización y eliminación de operaciones. En resumen, una API actúa como un intermediario que permite que dos aplicaciones se comuniquen y compartan datos entre sí.</p>",
+    "refs": [
+      {
+        "title": "Wikipedia - API",
+        "url": "https://en.wikipedia.org/wiki/API"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "Terminology"
+      }
+    ],
+    "imgs": [
+      {
+        "title": "¿Qué es un API?",
+        "url": "https://d1.awsstatic.com/whatisimg/New-API-GW-Diagram.c9fc9835d2a9aa00ef90d0ddc4c6402a2536de0d%20(1).67a41a2ef9823282fe672434ddd56dd22c13d5a5.png"
+      }
+    ]
+  },
+  {
+    "key": "rest",
+    "title": "REST",
+    "htmlDef": "<div>REST (Representational State Transfer) es un estilo arquitectónico para desarrollar servicios web. Una API REST se compone de métodos HTTP, URIs, tipos de medios y estado HTTP.<div>",
+    "refs": [
+      {
+        "title": "Wikipedia - REST",
+        "url": "https://en.wikipedia.org/wiki/Representational_state_transfer"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "Terminology"
+      }
+    ]
+  },
+  {
+    "key": "soap",
+    "title": "SOAP",
+    "htmlDef": "<div>SOAP (Simple Object Access Protocol) es un protocolo de intercambio de mensajes basado en XML a través de redes, utilizado principalmente para invocar acciones en servidores web.<div>",
+    "refs": [
+      {
+        "title": "Wikipedia - SOAP",
+        "url": "https://en.wikipedia.org/wiki/SOAP"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "Terminology"
+      }
+    ]
+  },
+  {
+    "key": "graphql",
+    "title": "GraphQL",
+    "htmlDef": "<div>GraphQL es un lenguaje de consulta y manipulación de datos para APIs, y un tiempo de ejecución para ejecutar esas consultas con tus datos existentes.<div>",
+    "refs": [
+      {
+        "title": "Wikipedia - GraphQL",
+        "url": "<https://en.wikipedia.org/wiki/GraphQL>"
+      }
+    ],
+    "tags": [
+      {
+        "name": "API",
+        "category": "Terminology"
+      }
+    ]
+  }
+]
