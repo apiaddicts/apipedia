@@ -13,7 +13,7 @@
     {
          <div style="text-align: center; margin: 1%;">
             <MudBarcode @ref="_barcode" @bind-Value="qrString" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
-            <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
+            <MudText Style="font-size: 5.5vh;" Color="Color.Primary" Align="Align.Center">@definition.Title</MudText>
 
         </div>
 
@@ -30,7 +30,7 @@
 
         if (definition.HtmlDef != null)
         {
-            <MudText Typo="Typo.h6" Align="Align.Center" Style="text-align: justify; margin: 1%">
+            <MudText Align="Align.Center" Style="font-size: 2.1vh; text-align: justify; margin: 1%">
                 @((MarkupString)definition.HtmlDef)
             </MudText>
         }
