@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Apipedia.dll": "sha256-s06UotXtugrmfjO++e\/GwJsaGZbuj1TU9CVP1rmRIQ0=",
+      "Apipedia.dll": "sha256-8FtS0uBxxf3C64H85cdDqe39995rN4FGPZS2E5ArIGY=",
       "Blazored.LocalStorage.dll": "sha256-5V8ovY1srbIIz7lzzMhLd3nNJ9LJ6bHoBOnLJahv8Go=",
       "CodeBeam.MudBlazor.Extensions.dll": "sha256-yjYEBMEmINjcgPiG+1qTz3UdXClc+d+xYi5G8kcmQSw=",
       "CsvHelper.dll": "sha256-oh395MqwHOdv87ggl0L2cpWEDZZGFYe3CVUXnzSo8rY=",
