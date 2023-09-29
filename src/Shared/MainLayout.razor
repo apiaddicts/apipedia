@@ -24,7 +24,7 @@
                 </div>
             </MudItem>
             <MudItem xs="12" sm="4" md="6" Style="display: flex; justify-content: center; align-items: center;">
-                <MudAutocomplete @ref="autoComplete" ResetValueOnEmptyText="true" @onclick="()=>autoComplete!.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="NavigateToKey" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search">
+                <MudAutocomplete @ref="autoComplete" ResetValueOnEmptyText="true" @onclick="()=>autoComplete!.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="NavigateToKey" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="fa-solid fa-magnifying-glass" AdornmentColor="Color.Primary">
                     <ItemTemplate>
                         @{
                             <div style="display: flex; justify-content: space-between;">

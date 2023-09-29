@@ -6,8 +6,10 @@
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/apiaddicts)
 [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@APIAddictslmaoo)
 
+
 Proyecto colabotarito para reunir definiciones, herramientas, utilidades del mundo de las Apis.
 
+[![APIPedia](https://img.shields.io/badge/APIPedia-00BCD4.svg?style=for-the-badge&logo=github&logoColor=white)](https://apiaddicts.github.io/apipedia/)
 
 ## 🧑‍🤝‍🧑 ¿Cómo Colaborar?
 Modifica una de nuestras secciones y envianos un `pr` que revisaremos para integrarlo. Puedes por ejemplo añadir, modificar, completar definiciones, estructurar una idea o mejorar la forma en la que se visualiza apipedia.
