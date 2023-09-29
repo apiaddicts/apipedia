@@ -1,5 +1,6 @@
 ﻿using Apipedia.Models;
-using System.Text.Json;
+using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
 
 namespace Apipedia.Services
 {
@@ -17,8 +18,12 @@ namespace Apipedia.Services
         {
             if (Definitions == null)
             {
-                var stream = await Http.GetStreamAsync("data/apidictionary.json");
-                Definitions = await JsonSerializer.DeserializeAsync<List<Definition>>(stream);
+                var yaml = new YamlStream();
+                var response = await Http.GetAsync("data/apidictionary.yaml");
+                var yamlString = await response.Content.ReadAsStringAsync();
+                yaml.Load(new StringReader(yamlString));
+                var deserializer = new DeserializerBuilder().Build();
+                Definitions = deserializer.Deserialize<List<Definition>>(yamlString);
             }
         }
     }

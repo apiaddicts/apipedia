@@ -1,23 +1,24 @@
 ﻿@page "/{word}"
 @inject HttpClient Http
+@inject DefinitionService DefinitionService
+@inject NavigationManager NavigationManager
 @using Models
 @using Services;
-@inject DefinitionService DefinitionService
 @using ZXing;
 
 <div class="animate__animated animate__fadeIn">
-    <MudItem xs="12" Style="margin: 20px 80px;">
+    <MudItem xs="12" Style="margin: 0% 5%;">
 
     @if (definition != null)
     {
-         <div style="text-align: center; margin: 20px;">
+         <div style="text-align: center; margin: 1%;">
             <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
-            <MudBarcode @ref="_barcode" @bind-Value="word" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
+                <MudBarcode @ref="_barcode" @bind-Value="qrString" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
         </div>
 
         @if (definition.Tags != null)
         {
-            <div style="text-align: justify; margin: 20px">
+                <div style="text-align: justify; margin: 1%">
                 @foreach (var tag in definition.Tags)
                 {
                     <MudChip Color="Color.Primary">@tag.Name</MudChip>
@@ -28,14 +29,14 @@
 
         if (definition.HtmlDef != null)
         {
-            <MudText Typo="Typo.h6" Align="Align.Center" Style="text-align: justify; margin: 20px">
+            <MudText Typo="Typo.h6" Align="Align.Center" Style="text-align: justify; margin: 1%">
                 @((MarkupString)definition.HtmlDef)
             </MudText>
         }
 
         if (definition.Refs != null)
         {
-             <div style="text-align: justify; margin: 20px">
+                <div style="text-align: justify; margin: 1%">
                 @foreach (var r in definition.Refs)
                 {
                     <MudChip Color="Color.Primary" Href="@r.Url" Style="text-align: justify;">@r.Title</MudChip>
@@ -45,19 +46,23 @@
 
         if (definition.Imgs != null)
         {
-            <div style="display: flex; justify-content: center; margin: 20px ">
+            <div style="display: flex; justify-content: center; margin: 1%">
                 <MudGallery ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large"></MudGallery>
-            </div>
+                </div>
+            }
         }
-
-    }
+        else
+        {
+            <MudText Typo="Typo.h4" Align="Align.Center" Color="Color.Secondary">Término no encontrado</MudText>
+        }
 
 </MudItem>
 </div>
 @code {
 
     [Parameter]
-    public string word { get; set; }
+    public string? word { get; set; }
+    public string? qrString { get; set; }
     private MudBarcode? _barcode;
     private Definition? definition;
 
@@ -67,6 +72,7 @@
         var definitions = DefinitionService.Definitions;
         if (definitions!=null)
             definition = definitions.FirstOrDefault(d => d.Key == word);
+        qrString = $"{NavigationManager.Uri}";
     }
 
     private List<string> imageSource()

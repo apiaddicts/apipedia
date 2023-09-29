@@ -1,44 +1,45 @@
-﻿using System.Text.Json.Serialization;
+﻿using YamlDotNet.Serialization;
 
 namespace Apipedia.Models
 {
     public class Definition
     {
-        [JsonPropertyName("key")]
+        [YamlMember(Alias = "key")]
         public required string Key { get; set; }
-        [JsonPropertyName("title")]
+        [YamlMember(Alias = "title")]
         public required string Title { get; set; }
-        [JsonPropertyName("htmlDef")]
+        [YamlMember(Alias = "htmlDef")]
         public string? HtmlDef { get; set; }
-        [JsonPropertyName("refs")]
+        [YamlMember(Alias = "refs")]
         public List<Reference>? Refs { get; set; }
-        [JsonPropertyName("tags")]
+        [YamlMember(Alias = "tags")]
         public List<Tag>? Tags { get; set; }
-        [JsonPropertyName("imgs")]
+        [YamlMember(Alias = "imgs")]
         public List<Img>? Imgs { get; set; }
     }
 
     public class Reference
     {
-        [JsonPropertyName("title")]
+        [YamlMember(Alias = "title")]
         public string? Title { get; set; }
-        [JsonPropertyName("url")]
+        [YamlMember(Alias = "url")]
         public string? Url { get; set; }
     }
 
     public class Tag
     {
-        [JsonPropertyName("name")]
+        [YamlMember(Alias = "name")]
         public string? Name { get; set; }
-        [JsonPropertyName("category")]
+        [YamlMember(Alias = "category")]
         public string? Category { get; set; }
     }
 
     public class Img
     {
-        [JsonPropertyName("title")]
+        [YamlMember(Alias = "title")]
         public string? Title { get; set; }
-        [JsonPropertyName("url")]
+        [YamlMember(Alias = "url")]
         public string? Url { get; set; }
     }
+
 }
