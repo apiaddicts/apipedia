@@ -12,8 +12,9 @@
     @if (definition != null)
     {
          <div style="text-align: center; margin: 1%;">
+            <MudBarcode @ref="_barcode" @bind-Value="qrString" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
             <MudText Color="Color.Primary" Typo="Typo.h2" Align="Align.Center">@definition.Title</MudText>
-                <MudBarcode @ref="_barcode" @bind-Value="qrString" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
+
         </div>
 
         @if (definition.Tags != null)
@@ -57,7 +58,7 @@
         }
         else
         {
-            <MudText Typo="Typo.h4" Align="Align.Center" Color="Color.Secondary">Término no encontrado 😧</MudText>
+            <MudText Typo="Typo.h4" Align="Align.Center" Color="Color.Secondary">Término no '@word' encontrado 😧</MudText>
         }
 
 </MudItem>

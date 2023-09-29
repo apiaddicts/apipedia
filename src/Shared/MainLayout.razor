@@ -15,12 +15,12 @@
     <MudContainer MaxWidth="MaxWidth.ExtraLarge" Style="margin-top: 15px;">
         <MudGrid>
             <MudItem xs="12" sm="4" md="3">
-                <div style="display: flex; align-items: center;">
+                <div @onclick="NavigateToRoot" style="display: flex; align-items: center; cursor: pointer;">
                     <MudIcon Color="Color.Inherit" Icon="fa-solid fa-book-atlas fa-shake" Style="margin: 10px;" />
-                    <MudText Color="Color.Inherit" @onclick="NavigateToRoot" Typo="Typo.h3">{</MudText>
-                    <MudText Color="Color.Primary" @onclick="NavigateToRoot" Typo="Typo.h3">Api</MudText>
-                    <MudText Color="Color.Secondary" @onclick="NavigateToRoot" Typo="Typo.h3">pedia</MudText>
-                    <MudText Color="Color.Inherit" @onclick="NavigateToRoot" Typo="Typo.h3">}</MudText>
+                    <MudText Color="Color.Inherit" Typo="Typo.h3">{</MudText>
+                    <MudText Color="Color.Primary" Typo="Typo.h3">API</MudText>
+                    <MudText Color="Color.Secondary" Typo="Typo.h3">pedia</MudText>
+                    <MudText Color="Color.Inherit" Typo="Typo.h3">}</MudText>
                 </div>
             </MudItem>
             <MudItem xs="12" sm="4" md="6" Style="display: flex; justify-content: center; align-items: center;">
