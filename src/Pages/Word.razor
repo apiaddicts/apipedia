@@ -21,8 +21,8 @@
                 <div style="text-align: justify; margin: 1%">
                 @foreach (var tag in definition.Tags)
                 {
-                    <MudChip Color="Color.Primary">@tag.Name</MudChip>
-                    <MudChip Color="Color.Secondary">@tag.Category</MudChip>
+                    <MudChip Icon="@Icons.Material.Filled.Tag" Color="Color.Primary">@tag.Name</MudChip>
+                    <MudChip Icon="@Icons.Material.Filled.Category" Color="Color.Secondary">@tag.Category</MudChip>
                 }
             </div>
         }
@@ -39,7 +39,7 @@
                 <div style="text-align: justify; margin: 1%">
                 @foreach (var r in definition.Refs)
                 {
-                    <MudChip Color="Color.Primary" Href="@r.Url" Style="text-align: justify;">@r.Title</MudChip>
+                        <MudChip Icon=@Icons.Material.Filled.Link Color="Color.Success" Target="_blank" Href="@r.Url" Style="text-align: justify;">@r.Title</MudChip>
                 }
             </div>
         }
@@ -47,13 +47,17 @@
         if (definition.Imgs != null)
         {
             <div style="display: flex; justify-content: center; margin: 1%">
-                <MudGallery ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large"></MudGallery>
+                    <MudGallery @ref="_gallery" ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large">
+                        <ToolboxTopContent>
+                            <MudText Class="white-text pa-4">@(definition.Imgs[_gallery!.GetSelectedImageIndex()].Title)</MudText>
+                        </ToolboxTopContent>
+                </MudGallery>
                 </div>
             }
         }
         else
         {
-            <MudText Typo="Typo.h4" Align="Align.Center" Color="Color.Secondary">Término no encontrado</MudText>
+            <MudText Typo="Typo.h4" Align="Align.Center" Color="Color.Secondary">Término no encontrado 😧</MudText>
         }
 
 </MudItem>
@@ -65,6 +69,7 @@
     public string? qrString { get; set; }
     private MudBarcode? _barcode;
     private Definition? definition;
+    private MudGallery? _gallery;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -77,7 +82,7 @@
 
     private List<string> imageSource()
     {
-        return definition.Imgs.Select(i=>i.Url).ToList();
+        return definition!.Imgs!.Select(i=>i.Url!).ToList();
     }
 
 }

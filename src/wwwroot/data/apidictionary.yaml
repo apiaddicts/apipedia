@@ -2,6 +2,7 @@
 ---
 - key: api
   title: API
+  summary: Interfaz de Programación de Aplicaciones
   htmlDef: "<p>Una API, o Interfaz de Programación de Aplicaciones, es un conjunto
     de reglas y protocolos que permite que diferentes programas de software interactúen
     entre sí. Estas interacciones pueden incluir la creación, lectura, actualización
@@ -18,33 +19,286 @@
     url: https://d1.awsstatic.com/whatisimg/New-API-GW-Diagram.c9fc9835d2a9aa00ef90d0ddc4c6402a2536de0d%20(1).67a41a2ef9823282fe672434ddd56dd22c13d5a5.png
 - key: rest
   title: REST
-  htmlDef: "<div>REST (Representational State Transfer) es un estilo arquitectónico
-    para desarrollar servicios web. Una API REST se compone de métodos HTTP, URIs,
-    tipos de medios y estado HTTP.<div>"
+  summary: Representational State Transfer
+  htmlDef: "<p>REST, o Representational State Transfer, es un estilo de arquitectura
+    para sistemas distribuidos como la World Wide Web. Se basa en la transferencia
+    de representaciones de recursos a través de protocolos de comunicación, típicamente
+    HTTP. Las APIs RESTful se diseñan siguiendo principios específicos que incluyen
+    operaciones CRUD (Crear, Leer, Actualizar, Eliminar) y el uso de URIs para identificar
+    recursos.</p>"
   refs:
   - title: Wikipedia - REST
     url: https://en.wikipedia.org/wiki/Representational_state_transfer
   tags:
-  - name: API
+  - name: REST
     category: Terminology
-- key: soap
-  title: SOAP
-  htmlDef: "<div>SOAP (Simple Object Access Protocol) es un protocolo de intercambio
-    de mensajes basado en XML a través de redes, utilizado principalmente para invocar
-    acciones en servidores web.<div>"
+- key: json
+  title: JSON
+  summary: Notación de Objetos JavaScript
+  htmlDef: "<p>JSON, o Notación de Objetos JavaScript, es un formato de datos común
+    utilizado para intercambiar datos. Es fácil de leer y escribir para los humanos
+    y fácil de analizar y generar para las máquinas. JSON se utiliza con frecuencia
+    en las APIs web para enviar datos entre el servidor y el cliente.</p>"
   refs:
-  - title: Wikipedia - SOAP
-    url: https://en.wikipedia.org/wiki/SOAP
+  - title: Mozilla Developer Network - JSON
+    url: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
   tags:
-  - name: API
+  - name: Format
     category: Terminology
+- key: endpoint
+  title: Endpoint
+  summary: Punto de Acceso en una API
+  htmlDef: "<p>Un endpoint es un punto de acceso específico en una API que puede
+    ser solicitado por clientes. Representa un recurso individual, como una entidad
+    en una base de datos o un servicio. Los endpoints permiten a los clientes interactuar
+    con la API realizando solicitudes HTTP como GET, POST, PUT o DELETE para acceder
+    a los recursos relacionados con ese endpoint.</p>"
+  refs:
+  - title: MDN Web Docs - API Endpoint
+    url: https://developer.mozilla.org/en-US/docs/Glossary/Endpoint
+  tags:
+  - name: Endpoint
+    category: Terminology
+- key: get
+  title: GET
+  summary: Método HTTP para Solicitar Datos
+  htmlDef: "<p>GET es un método HTTP utilizado para solicitar datos de un recurso
+    en una API. Cuando un cliente realiza una solicitud GET, el servidor devuelve
+    los datos solicitados sin modificar el estado del recurso en el servidor.
+    Es un método seguro y se utiliza comúnmente para recuperar información de un
+    servidor.</p>"
+  refs:
+  - title: Mozilla Developer Network - HTTP GET
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET
+  tags:
+  - name: Verb
+    category: HTTP Methods
+- key: post
+  title: POST
+  summary: Método HTTP para Enviar Datos
+  htmlDef: "<p>POST es un método HTTP utilizado para enviar datos a un recurso en
+    una API. A diferencia de GET, POST modifica el estado del recurso en el servidor
+    y es adecuado para enviar datos sensibles o realizar cambios en los datos del
+    servidor. Se utiliza comúnmente en formularios web y solicitudes de creación
+    de recursos.</p>"
+  refs:
+  - title: Mozilla Developer Network - HTTP POST
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST
+  tags:
+  - name: Verb
+    category: HTTP Methods
+- key: put
+  title: PUT
+  summary: Método HTTP para Actualizar Datos
+  htmlDef: "<p>PUT es un método HTTP utilizado para actualizar datos de un recurso
+    en una API. Un cliente envía una solicitud PUT con los datos actualizados al
+    servidor, que reemplaza los datos existentes del recurso con los nuevos datos
+    proporcionados. Es útil para operaciones de actualización y modificación de
+    datos en la API.</p>"
+  refs:
+  - title: Mozilla Developer Network - HTTP PUT
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT
+  tags:
+  - name: Verb
+    category: HTTP Methods
+- key: delete
+  title: DELETE
+  summary: Método HTTP para Eliminar un Recurso
+  htmlDef: "<p>DELETE es un método HTTP utilizado para eliminar un recurso en una
+    API. Cuando un cliente realiza una solicitud DELETE a un endpoint específico,
+    el servidor elimina el recurso asociado con ese endpoint. Es una operación irreversible
+    y se utiliza con precaución para evitar la pérdida accidental de datos.</p>"
+  refs:
+  - title: Mozilla Developer Network - HTTP DELETE
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE
+  tags:
+  - name: Verb
+    category: HTTP Methods
+- key: api-key
+  title: API Key
+  summary: Clave de Autenticación para Acceder a una API
+  htmlDef: "<p>Una API Key, o clave de API, es un código de autenticación proporcionado
+    por la API para identificar la fuente de una solicitud. Los desarrolladores utilizan
+    estas claves para acceder a los recursos protegidos por la API. Proporcionan
+    un nivel básico de seguridad y son esenciales para muchas operaciones en las
+    APIs.</p>"
+  refs:
+  - title: MDN Web Docs - API Key
+    url: https://developer.mozilla.org/en-US/docs/Glossary/API_key
+  tags:
+  - name: API Key
+    category: Security
+- key: rate-limiting
+  title: Rate Limiting
+  summary: Restricción de la Cantidad de Solicitudes en una API
+  htmlDef: "<p>Rate Limiting es una práctica en APIs para limitar el número de solicitudes
+    que un cliente puede hacer en un período de tiempo específico. Establecer límites
+    ayuda a prevenir el abuso del sistema y garantiza un rendimiento equitativo
+    para todos los usuarios. Los límites suelen basarse en solicitudes por minuto
+    u hora.</p>"
+  refs:
+  - title: Cloudflare - Rate Limiting
+    url: https://www.cloudflare.com/learning/security/threats/rate-limiting/
+  tags:
+  - name: Rate Limiting
+    category: Security
+- key: oauth
+  title: OAuth
+  summary: Protocolo de Autorización para Servicios Web
+  htmlDef: "<p>OAuth es un protocolo de autorización utilizado en servicios web
+    para otorgar acceso limitado a recursos sin compartir credenciales sensibles.
+    Permite a los usuarios autorizar aplicaciones de terceros para acceder a sus
+    recursos sin revelar sus contraseñas. OAuth se utiliza ampliamente en APIs
+    sociales y servicios en la nube.</p>"
+  refs:
+  - title: OAuth.net - OAuth
+    url: https://oauth.net/
+  tags:
+  - name: OAuth
+    category: Security
+- key: sdk
+  title: SDK
+  summary: Kit de Desarrollo de Software para Interactuar con una API
+  htmlDef: "<p>Un SDK, o Kit de Desarrollo de Software, es un conjunto de herramientas,
+    bibliotecas y documentación que los desarrolladores utilizan para interactuar
+    con una API específica. Los SDK facilitan la integración de una API en aplicaciones
+    y servicios, proporcionando funciones predefinidas y ejemplos de código para
+    simplificar el desarrollo.</p>"
+  refs:
+  - title: What is an SDK?
+    url: https://www.codecademy.com/articles/what-is-an-sdk
+  tags:
+  - name: SDK
+    category: Development Tools
+- key: webhooks
+  title: Webhooks
+  summary: Mecanismo para Notificar Eventos en Tiempo Real
+  htmlDef: "<p>Webhooks son mecanismos que permiten que una API notifique eventos
+    a otras aplicaciones en tiempo real. En lugar de que una aplicación consulte
+    repetidamente a la API en busca de nuevas actualizaciones, la API envía una
+    solicitud HTTP a una URL predefinida cuando ocurre un evento específico. Los
+    webhooks son esenciales para la integración y la automatización en tiempo real.</p>"
+  refs:
+  - title: Stripe - Webhooks
+    url: https://stripe.com/docs/webhooks
+  tags:
+  - name: Webhooks
+    category: Real-time Communication
 - key: graphql
   title: GraphQL
-  htmlDef: "<div>GraphQL es un lenguaje de consulta y manipulación de datos para APIs,
-    y un tiempo de ejecución para ejecutar esas consultas con tus datos existentes.<div>"
+  summary: Lenguaje de Consulta para API
+  htmlDef: "<p>GraphQL es un lenguaje de consulta para APIs y un entorno de tiempo
+    de ejecución para ejecutar esas consultas con los datos existentes. Permite
+    a los clientes solicitar solo los datos que necesitan y nada más. En lugar
+    de recibir datos predefinidos, los clientes pueden especificar la estructura
+    de los datos que necesitan, y el servidor responde solo con esos datos. GraphQL
+    se utiliza en lugar de REST en algunas APIs para proporcionar una flexibilidad
+    significativamente mayor.</p>"
   refs:
-  - title: Wikipedia - GraphQL
-    url: "<https://en.wikipedia.org/wiki/GraphQL>"
+  - title: GraphQL.org - Introduction
+    url: https://graphql.org/learn/
   tags:
   - name: API
-    category: Terminology
+    category: Technologies
+- key: soap
+  title: SOAP
+  summary: Protocolo de Acceso a Objetos Simples
+  htmlDef: "<p>SOAP, o Protocolo de Acceso a Objetos Simples, es un protocolo de
+    intercambio de información estructurada en la implementación de servicios web.
+    Utiliza XML para definir un conjunto de reglas para la estructura del mensaje
+    y los métodos de llamada. Aunque SOAP es más pesado que REST, se utiliza en
+    entornos donde se requiere un alto nivel de seguridad y transacciones fiables.</p>"
+  refs:
+  - title: SOAP vs REST
+    url: https://smartbear.com/blog/test-and-monitor/soap-vs-rest-whats-the-difference/
+  tags:
+  - name: API
+    category: Technologies
+- key: restful
+  title: RESTful
+  summary: Diseño de API Web basado en los Principios de REST
+  htmlDef: "<p>RESTful se refiere a un diseño de API web que sigue los principios
+    de REST. Las APIs RESTful utilizan operaciones HTTP estándar (GET, POST, PUT,
+    DELETE) para realizar operaciones CRUD en recursos. También utilizan URIs para
+    identificar recursos y HTTP status codes para indicar el estado de una solicitud.
+    Los principios RESTful promueven la escalabilidad, la simplicidad y la interoperabilidad
+    entre sistemas.</p>"
+  refs:
+  - title: RESTful API Design
+    url: https://www.restapitutorial.com/lessons/restfulresourcenaming.html
+  tags:
+  - name: RESTful
+    category: API Design Principles
+- key: endpoint-url
+  title: RESTful
+  summary: Dirección Web Específica para Acceder a un Recurso en una API
+  htmlDef: "<p>Una Endpoint URL es una dirección web específica que los clientes
+    utilizan para acceder a un recurso en una API. La URL incluye el dominio del
+    servidor, el camino del recurso en la API y, a veces, parámetros de consulta.
+    Al hacer una solicitud HTTP a una Endpoint URL específica, un cliente puede
+    recuperar, enviar, actualizar o eliminar datos en la API asociados con ese endpoint.</p>"
+  refs:
+  - title: What is an Endpoint?
+    url: https://nordicapis.com/what-is-an-api-endpoint/
+  tags:
+  - name: API
+    category: API Concepts
+- key: serialization
+  title: Serialization
+  summary: Proceso de Convertir un Objeto en un Formato Almacenable
+  htmlDef: "<p>Serialization es el proceso de convertir un objeto o estructura de
+    datos en un formato que puede ser almacenado o transmitido. En el contexto de
+    APIs, la serialización implica convertir datos en un formato como JSON o XML
+    para que puedan ser enviados a través de una red o almacenados en una base
+    de datos. La serialización facilita el intercambio y la persistencia de datos.</p>"
+  refs:
+  - title: Serialization and Deserialization in Java
+    url: https://www.baeldung.com/java-serialization
+  tags:
+  - name: Serialization
+    category: API Concepts
+- key: deserialization
+  title: Deserialization
+  summary: Proceso de Convertir Datos Serializados en un Objeto Utilizable
+  htmlDef: "<p>Deserialization es el proceso inverso a la serialización, donde
+    los datos serializados (como JSON o XML) se convierten de nuevo en objetos
+    o estructuras de datos utilizables en un programa. Después de que los datos
+    se han transmitido o almacenado en un formato serializado, la deserialización
+    los convierte nuevamente en su forma original para su manipulación y procesamiento
+    por parte de la aplicación.</p>"
+  refs:
+  - title: Serialization and Deserialization in Python
+    url: https://realpython.com/python-json/
+  tags:
+  - name: Deserialization
+    category: API Concepts
+- key: status-code
+  title: Status Code
+  summary: Números que Indican el Estado de una Solicitud HTTP
+  htmlDef: "<p>Los Status Codes, o códigos de estado, son números de tres dígitos
+    que indican el estado de una solicitud HTTP realizada por un cliente. Los códigos
+    de estado comunes incluyen 200 (OK, solicitud exitosa), 404 (Not Found, recurso
+    no encontrado) y 500 (Internal Server Error, error interno del servidor). Los
+    status codes proporcionan información sobre el resultado de una solicitud y
+    ayudan a los clientes a entender el estado de la operación realizada.</p>"
+  refs:
+  - title: HTTP Status Codes
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+  tags:
+  - name: Status Code
+    category: HTTP Concepts
+- key: versioning
+  title: Versioning
+  summary: Práctica de Mantener Diferentes Versiones de una API
+  htmlDef: "<p>Versioning es la práctica de mantener diferentes versiones de una
+    API para garantizar la compatibilidad con clientes existentes. A medida que
+    una API evoluciona y se actualiza, algunas aplicaciones pueden depender de
+    funcionalidades específicas de una versión anterior. Al proporcionar versiones
+    diferentes, las API permiten que las aplicaciones existentes sigan funcionando
+    como se esperaba, incluso si la API subyacente ha cambiado.</p>"
+  refs:
+  - title: API Versioning Best Practices
+    url: https://www.troyhunt.com/api-versioning-is-dead-long-live-api-versioning/
+  tags:
+  - name: Concepts
+    category: Best Practices

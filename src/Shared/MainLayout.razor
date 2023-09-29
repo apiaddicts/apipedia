@@ -16,17 +16,24 @@
         <MudGrid>
             <MudItem xs="12" sm="4" md="3">
                 <div style="display: flex; align-items: center;">
-                    <MudIcon Color="Color.Primary" Icon="fa-solid fa-gear fa-shake" Style="margin: 10px;" />
-                    <MudText @onclick="NavigateToRoot" Typo="Typo.h3">Apipedia</MudText>
+                    <MudIcon Color="Color.Inherit" Icon="fa-solid fa-book-atlas fa-shake" Style="margin: 10px;" />
+                    <MudText Color="Color.Inherit" @onclick="NavigateToRoot" Typo="Typo.h3">{</MudText>
+                    <MudText Color="Color.Primary" @onclick="NavigateToRoot" Typo="Typo.h3">Api</MudText>
+                    <MudText Color="Color.Secondary" @onclick="NavigateToRoot" Typo="Typo.h3">pedia</MudText>
+                    <MudText Color="Color.Inherit" @onclick="NavigateToRoot" Typo="Typo.h3">}</MudText>
                 </div>
             </MudItem>
             <MudItem xs="12" sm="4" md="6" Style="display: flex; justify-content: center; align-items: center;">
-                <MudAutocomplete @ref="autoComplete" ResetValueOnEmptyText="true" @onclick="()=>autoComplete!.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="NavigateToKey" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search"></MudAutocomplete>
-            </MudItem>
-            <MudItem xs="12" sm="4" md="3">
-                <div style="display: flex; justify-content: flex-end;">
-                    <MudToggleIconButton Toggled="_isDarkMode" ToggledChanged="ToggleDarkMode" Icon="fa-solid fa-moon" ToggledIcon="fa-solid fa-sun" ToggledColor="@Color.Warning" Color="@Color.Inherit" Edge="Edge.Start" />
-                </div>
+                <MudAutocomplete @ref="autoComplete" ResetValueOnEmptyText="true" @onclick="()=>autoComplete!.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="NavigateToKey" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search">
+                    <ItemTemplate>
+                        @{
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong>@context.Title</strong>
+                                <em style="text-align: right;">@context.Summary</em>
+                            </div>
+                        }
+                    </ItemTemplate>
+                </MudAutocomplete>
             </MudItem>
         </MudGrid>
     </MudContainer>
@@ -48,7 +55,7 @@
         </MudItem>
         <MudSpacer></MudSpacer>
         <MudItem>
-            <MudImage @onclick=NavigateApiaddicts Src="imgs/apiaddicts_logo.png" Width="150" Fluid="true" Style="@("display: flex;  justify-content: center;  align-items: center;")" />
+            <MudToggleIconButton Toggled="_isDarkMode" ToggledChanged="ToggleDarkMode" Icon="fa-solid fa-moon" ToggledIcon="fa-solid fa-sun" ToggledColor="@Color.Warning" Color="@Color.Dark" Edge="Edge.End" />
         </MudItem>
     </MudAppBar>
 </MudLayout>

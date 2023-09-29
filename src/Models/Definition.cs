@@ -8,6 +8,8 @@ namespace Apipedia.Models
         public required string Key { get; set; }
         [YamlMember(Alias = "title")]
         public required string Title { get; set; }
+        [YamlMember(Alias = "summary")]
+        public required string Summary { get; set; }
         [YamlMember(Alias = "htmlDef")]
         public string? HtmlDef { get; set; }
         [YamlMember(Alias = "refs")]
