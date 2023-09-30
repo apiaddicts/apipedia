@@ -1,0 +1,30 @@
+﻿<svg id="apipedia" viewBox="-4000 -1000 10500 2300" xmlns='http://www.w3.org/2000/svg'>
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Righteous');
+
+		svg{
+		stroke: #878787;
+		stroke-linecap: round;
+		fill: none;
+		}
+
+		svg text{
+		font-family: 'Righteous', monospace;
+		}
+
+		*{
+		stroke-width: 0.5%;
+		}
+
+	</style>
+
+	<text x="-3700" y="680" font-size="1600" fill="white">{</text>
+	<text x="-2800" y="680" font-size="1600" fill="#18C5CC">API</text>
+	<text x="500" y="680" font-size="1600" fill="#FD8E18">pedia</text>
+	<text x="4700" y="680" font-size="1600" fill="white">}</text>
+
+    <image id="block" x="-270" y="-100" width="800" height="800" href="atlas.svg"/>
+	
+
+</svg>

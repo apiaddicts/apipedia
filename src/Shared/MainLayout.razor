@@ -14,15 +14,15 @@
 <MudLayout>
     <MudContainer MaxWidth="MaxWidth.ExtraLarge" Style="margin-top: 15px;">
         <MudGrid>
+            
             <MudItem xs="12" sm="4" md="3">
-                <div @onclick="NavigateToRoot" style="display: flex; align-items: center; cursor: pointer;">
-                    <MudIcon Color="Color.Inherit" Icon="fa-solid fa-book-atlas fa-shake" Style="margin: 10px;" />
-                    <MudText Color="Color.Inherit" Typo="Typo.h3">{</MudText>
-                    <MudText Color="Color.Primary" Typo="Typo.h3">API</MudText>
-                    <MudText Color="Color.Secondary" Typo="Typo.h3">pedia</MudText>
-                    <MudText Color="Color.Inherit" Typo="Typo.h3">}</MudText>
+                <div @onclick="NavigateToRoot" style="width: 85%; cursor: pointer;">
+                    <div style="width: 100%; height: 100%;">
+                        <embed src="imgs/apipedia_logo.svg" style="width: 100%; height: 100%; filter: drop-shadow(3px 3px 3px black);" />
+                    </div>
                 </div>
             </MudItem>
+            
             <MudItem xs="12" sm="4" md="6" Style="display: flex; justify-content: center; align-items: center;">
                 <MudAutocomplete @ref="autoComplete" ResetValueOnEmptyText="true" @onclick="()=>autoComplete!.Clear()" ToStringFunc="(x)=> x.Title" ValueChanged="NavigateToKey" T="Definition" SearchFunc="SearchDefinition" Margin="Margin.Dense" Variant="Variant.Outlined" Placeholder="Buscar" Adornment="Adornment.End" AdornmentIcon="fa-solid fa-magnifying-glass" AdornmentColor="Color.Primary">
                     <ItemTemplate>

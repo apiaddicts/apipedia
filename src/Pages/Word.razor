@@ -34,7 +34,7 @@
         if (definition.HtmlDef != null)
         {
             <MudTooltip Placement="Placement.Top" Arrow="true" Text="@definition.Summary">
-                <MudText Align="Align.Center" Style="font-size: 2.1vh; text-align: justify; margin: 1%">
+                    <MudText Align="Align.Center" Style="font-size: 2.1vh; text-align: justify; margin: 0.5%">
                     @((MarkupString)definition.HtmlDef)
                 </MudText>
             </MudTooltip>
@@ -42,7 +42,7 @@
 
         if (definition.Refs != null)
         {
-                <div style="text-align: justify; margin: 1%">
+                <div style="text-align: justify; margin: 0.5%">
                 @foreach (var r in definition.Refs)
                 {
                         <MudChip Icon=@Icons.Material.Filled.Link Color="Color.Success" Target="_blank" Href="@r.Url" Style="text-align: justify;">@r.Title</MudChip>
@@ -52,7 +52,7 @@
 
         if (definition.Imgs != null)
         {
-            <div style="display: flex; justify-content: center; margin: 1%">
+            <div style="display: flex; justify-content: center; margin: 0.5%">
                     <MudGallery @ref="_gallery" ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large">
                         <ToolboxTopContent>
                             <MudText Class="white-text pa-4">@(definition.Imgs[_gallery!.GetSelectedImageIndex()].Title)</MudText>
