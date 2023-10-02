@@ -15,12 +15,9 @@
     <MudContainer MaxWidth="MaxWidth.ExtraLarge" Style="margin-top: 15px;">
         <MudGrid>
             
-            <MudItem xs="12" sm="4" md="3">
-                <div @onclick="NavigateToRoot" style="width: 85%; cursor: pointer;">
-                    <div style="width: 100%; height: 100%;">
-                        <embed src="imgs/apipedia_logo.svg" style="width: 100%; height: 100%; filter: drop-shadow(3px 3px 3px black);" />
-                    </div>
-                </div>
+            <MudItem xs="12" sm="4" md="3" Style="display: flex; justify-content: center;" >
+                <embed src="imgs/apipedia_logo.svg" style="width: 85%; filter: drop-shadow(3px 3px 3px black);" />
+                <div style="position: absolute; width: 100%; height: 100%; cursor: pointer;" @onclick="NavigateToRoot"></div>
             </MudItem>
             
             <MudItem xs="12" sm="4" md="6" Style="display: flex; justify-content: center; align-items: center;">
@@ -44,6 +41,7 @@
         <MudItem>
             <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Href="https://github.com/apiaddicts" Target="_blank"></MudIconButton>
         </MudItem>
+        <MudHidden Breakpoint="Breakpoint.SmAndDown">
         <MudItem>
             <MudIconButton Icon="@Icons.Custom.Brands.YouTube" Href="https://www.youtube.com/channel/UCepaRmZBCmbdU4QqNhSV5jQ" Target="_blank"></MudIconButton>
         </MudItem>
@@ -53,6 +51,7 @@
         <MudItem>
             <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Href="https://www.linkedin.com/company/apiaddicts/" Target="_blank"></MudIconButton>
         </MudItem>
+        </MudHidden>
         <MudSpacer></MudSpacer>
         <MudItem>
             <MudToggleIconButton Toggled="_isDarkMode" ToggledChanged="ToggleDarkMode" Icon="fa-solid fa-moon" ToggledIcon="fa-solid fa-sun" ToggledColor="@Color.Warning" Color="@Color.Dark" Edge="Edge.End" />

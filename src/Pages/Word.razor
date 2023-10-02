@@ -11,7 +11,7 @@
 
     @if (definition != null)
     {
-         <div style="text-align: center; margin: 1%;">
+         <div style="text-align: center;">
 
              <MudTooltip Placement="Placement.Top" Arrow="true" Text="@qrString">
                 <MudBarcode @ref="_barcode" @bind-Value="qrString" Width="100" Height="100" BarcodeFormat="BarcodeFormat.QR_CODE" Color="black" />
@@ -22,7 +22,7 @@
 
         @if (definition.Tags != null)
         {
-                <div style="text-align: justify; margin: 1%">
+                <div style="text-align: justify;">
                 @foreach (var tag in definition.Tags)
                 {
                     <MudChip Icon="@Icons.Material.Filled.Tag" Color="Color.Primary">@tag.Name</MudChip>
@@ -34,7 +34,7 @@
         if (definition.HtmlDef != null)
         {
             <MudTooltip Placement="Placement.Top" Arrow="true" Text="@definition.Summary">
-                    <MudText Align="Align.Center" Style="font-size: 2.1vh; text-align: justify; margin: 0.5%">
+                    <MudText Align="Align.Center" Style="font-size: 2.1vh; text-align: justify; margin: 6px;">
                     @((MarkupString)definition.HtmlDef)
                 </MudText>
             </MudTooltip>
@@ -42,7 +42,7 @@
 
         if (definition.Refs != null)
         {
-                <div style="text-align: justify; margin: 0.5%">
+                <div style="text-align: justify;">
                 @foreach (var r in definition.Refs)
                 {
                         <MudChip Icon=@Icons.Material.Filled.Link Color="Color.Success" Target="_blank" Href="@r.Url" Style="text-align: justify;">@r.Title</MudChip>
@@ -52,7 +52,7 @@
 
         if (definition.Imgs != null)
         {
-            <div style="display: flex; justify-content: center; margin: 0.5%">
+            <div style="display: flex; justify-content: center;">
                     <MudGallery @ref="_gallery" ImageSource="imageSource()" ItemPerLine="5" MaxWidth="MaxWidth.Large">
                         <ToolboxTopContent>
                             <MudText Class="white-text pa-4">@(definition.Imgs[_gallery!.GetSelectedImageIndex()].Title)</MudText>
